@@ -1,0 +1,6 @@
+<p *ngIf ="this.service.questions.length > 0" >{{this.service.questions[this.service.qnNo].Instructions}}</p>
+  <div class="row">
+      <div class="input-field col s12">
+        <button class="btn-large btn-submit" type="submit" (click) = "OnNext()" >Next</button>
+      </div>
+    </div>
