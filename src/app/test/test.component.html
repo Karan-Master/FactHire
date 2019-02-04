@@ -1,12 +1,18 @@
 <div class="jumbtron">
   <h1 class="display-4 text-center">Test</h1>
+  <span>Time Elapsed : {{this.service.displayTimeElapsed()}}</span>
   <hr>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <app-question></app-question>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <app-mcq></app-mcq>
+    </div>
+  </div>
+  <div class="row" style="float:center">
+    <div class="input-field col s12">
+      <button class="btn-large btn-submit" type="submit" (click) = "onSubmitTest()" >Submit Test</button>
     </div>
   </div>
 </div>

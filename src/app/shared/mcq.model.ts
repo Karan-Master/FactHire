@@ -1,4 +1,4 @@
-export class mcqs{
+export class mcq{
     MCQ_Id : number;
     Question_Id : number;
     Question_text : string;
@@ -9,4 +9,5 @@ export class mcqs{
     Image : string;
     Hint : string;
     Answer : string;
+    marks : number;
 }

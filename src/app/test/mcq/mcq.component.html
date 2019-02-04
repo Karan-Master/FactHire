@@ -1,13 +1,33 @@
-
-<form *ngIf = "this.service.mcqs.length>0">
-<p> {{this.service.mcqs[this.mcqNo].Question_text}}<p>
-<input type="radio" name="option" value = "Option_A">{{this.service.mcqs[this.mcqNo].Option_A}}<br>
-<input type="radio" name="option" value = "Option_B">{{this.service.mcqs[this.mcqNo].Option_B}}<br>
-<input type="radio" name="option" value = "Option_C">{{this.service.mcqs[this.mcqNo].Option_C}}<br>
-<input type="radio" name="option" value = "Option_D">{{this.service.mcqs[this.mcqNo].Option_D}}
+<div *ngIf = "this.service.mcqs.length > 0">
+  <form>
+  <div>
+      
+      <p > {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Question_text}}<p>
+      <p> {{this.service.mcqs[0].Question_text}}<p>
+      <p>Marks : {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks}}</p>
+      <input type="radio" ng-model name="option" value = "Option_A" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_A}}<br>
+      <input type="radio" ng-model name="option" value = "Option_B" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_B}}<br>
+      <input type="radio" ng-model name="option" value = "Option_C" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_C}}<br>
+      <input type="radio" ng-model name="option" value = "Option_D" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_D}}
+    
+  </div>
+  <div>
+    <div class="row" style="float:left">
+      <div class="input-field col s12">
+        <button class="btn-large btn-submit"  [disabled]="this.service.mcqNo == 0" type="submit" (click) = "onPrevious()" >Previous</button>
+      </div>
+      </div>
+      <div class="row" style="float:left">
+        <div class="input-field col s12">
+          <button class="btn-large btn-submit" type="submit" (click) = "onSubmit()" >Submit</button>
+          <!--<input type="submit" value="submit" (click) = "onSubmit()">-->
+        </div>
+      </div>
+      <div class="row" style="float:left">
+        <div class="input-field col s12">
+          <button class="btn-large btn-submit"  [disabled]="this.service.mcqNo == (this.service.mcqs[this.service.qnNo].length - 1)" type="submit" (click) = "onNext()" >Next</button>
+        </div>
+      </div>
+  </div>
 </form>
-<div class="row">
-    <div class="input-field col s12">
-      <button class="btn-large btn-submit" type="submit" (click) = "onNext()" >Next</button>
-    </div>
 </div>

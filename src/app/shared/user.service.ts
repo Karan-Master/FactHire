@@ -3,7 +3,8 @@ import { User } from './user.model';
 import { HttpClient } from "@angular/common/http";
 import { CaseStudy } from './CaseStudy.model';
 import { question } from './question.model';
-import { mcqs } from './mcqs.model';
+import { mcq } from './mcq.model';
+import { caseresult } from './caseresult.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,30 @@ export class UserService {
   userDetail : User;
   casestudy : CaseStudy;
   currentqid : number;
+  mcqNo : number = 0;
   questions : question[] = [];
-  mcqs : mcqs[] = [];
-  qnNo : number;
+  mcqs : mcq[][] = [];
+  //mcqs : mcqs[][] = [];
+  qids : number[] = [];
+  qnNo : number = 0;
+  totalmark : number = 0 ;
+  seconds: number;
+  timer;
+  qnProgress: number;
+  correctAnswerCount: number = 0;
+  caseresult : caseresult;
+  attempts : number[][] = [];
   readonly rootURL ="http://localhost:53737/api"
   
   constructor(private http : HttpClient) { }
 
-  
+  displayTimeElapsed() {
+    return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
+  }
+
+  postResult(result : caseresult){
+    return this.http.post(this.rootURL+'/CaseResult',result);
+  }
 
   postEmployee(userDetail : User){
     return this.http.post(this.rootURL+'/User',userDetail);
@@ -38,9 +55,13 @@ export class UserService {
     
   }
 
-  getMcq(questionid : number){
-    console.log(questionid);
-    return this.http.post(this.rootURL+'/Mcq' , questionid);
+  getMcq(qid : number){
+    console.log(qid);
+    return this.http.post(this.rootURL+'/Mcq' , qid);
     
   }
+  /*
+  loadMcq(qids : number[]){
+    this.http.post(this.rootURL+'/LoadMcq' ,qids);
+  }*/
 }

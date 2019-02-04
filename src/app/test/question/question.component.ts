@@ -14,34 +14,49 @@ import { McqComponent } from '../mcq/mcq.component';
 export class QuestionComponent implements OnInit {
 
   constructor(private service : UserService,private mcq : McqComponent) { }
-
+  
+  isAvailable : boolean = false;
   ngOnInit() {
 
-   // this.resetForm();
-    
+    console.log("ngoninit")
     this.service.getQuestion(1).subscribe(
       (data : any) =>{
         console.log("calling http post for question");
         this.service.questions = data;
-        
+        this.isAvailable = true;
         this.service.qnNo = 0;
+        this.service.mcqNo = 0;
         this.service.currentqid = this.service.questions[this.service.qnNo].Question_Id;
-        this.mcq.getMcqs();
-        console.log(this.service.questions[this.service.qnNo].Instructions);
+        console.log("question fetch completed");
+        this.dummy();
+        console.log("question fetch completed11");
       }
     );
-  }
-  //@Output() myEvent = new EventEmitter();
-
-
-  /*resetForm(form?: NgForm) {
-    if (form != null)
-      form.resetForm();
     
-  }*/
-  OnNext(){
+  }
+  
+  dummy(){
+    console.log("dummy");
+    var i:number;
+    for( i =0;i<this.service.questions.length;i++){
+     // console.log(i);
+      this.mcq.loadMcq(i,this.service.questions[i].Question_Id);
+      console.log("thread " +i);
+      console.log(this.service.mcqs.length);
+      
+    }
+      console.log(this.service.mcqs.length);
+      this.mcq.isA = true;
+    
+  }
+  onNext(){
     this.service.qnNo++;
-    this.service.currentqid = this.service.questions[this.service.qnNo].Question_Id;
-    this.mcq.getMcqs();
+    this.service.mcqNo = 0;
+    
+  }
+  onPrevious(){
+    this.service.qnNo--;
+    this.service.mcqNo = 0;
+    
   }
 }

@@ -1,6 +1,13 @@
-<p *ngIf ="this.service.questions.length > 0" >{{this.service.questions[this.service.qnNo].Instructions}}</p>
-  <div class="row">
-      <div class="input-field col s12">
-        <button class="btn-large btn-submit" type="submit" (click) = "OnNext()" >Next</button>
-      </div>
+<p *ngIf ="this.service.questions.length > 0">{{this.service.questions[this.service.qnNo].Instructions}}</p>
+  <div *ngIf = "this.isAvailable">
+  <div class="row" style="float:left">
+    <div class="input-field col s12">
+      <button class="btn-large btn-submit" [disabled]="this.service.qnNo == 0" type="submit" (click) = "onPrevious()" >Previous</button>
     </div>
+  </div>
+  <div class="row" style="float:left">
+    <div class="input-field col s12">
+      <button class="btn-large btn-submit"[disabled]="this.service.qnNo == this.service.questions.length - 1" type="submit" (click) = "onNext()" >Next</button>
+    </div>
+  </div>
+</div>
