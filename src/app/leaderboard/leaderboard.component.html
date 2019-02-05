@@ -1,4 +1,4 @@
-<h1>LeaderBoard</h1>
+<!--<h1>LeaderBoard</h1>
   <h2>For casestudy {{this.service.casestudy.Case_Id}}</h2>
   <ul>
     <li *ngFor="let entry of this.service.leaderboard">
@@ -6,3 +6,26 @@
       {{ entry.total_score}}
     </li>
   </ul>
+  -->
+  <h1 class="display-4 text-center">LeaderBoard</h1>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="this.service.leaderboard">
+  
+      
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.User_Id}} </td>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="mark">
+        <th mat-header-cell *matHeaderCellDef> Score </th>
+        <td mat-cell *matCellDef="let element"> {{element.total_score}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

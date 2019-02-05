@@ -14,7 +14,10 @@ import { QuestionComponent } from './test/question/question.component';
 import { McqComponent } from './test/mcq/mcq.component';
 import { CasestudyComponent } from './casestudy/casestudy.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

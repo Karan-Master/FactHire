@@ -18,6 +18,9 @@ export class TestComponent implements OnInit {
   startTimer() {
     this.service.timer = setInterval(() => {
       this.service.seconds++;
+      if(this.service.casestudy.Duration == this.service.seconds){
+        this.onSubmitTest();
+      }
       localStorage.setItem('seconds', this.service.seconds.toString());
     }, 1000);
   }

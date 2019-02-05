@@ -23,7 +23,15 @@ export class QuestionComponent implements OnInit {
       (data : any) =>{
         console.log("calling http post for question");
         this.service.questions = data;
-
+        var i;
+        for(i=0;i<this.service.questions.length;i++){
+          this.service.mcqs[i] = this.service.questions[i].mcqs;
+          this.service.attempts[i] = [];
+          var mcqid;
+          for(mcqid = 0; mcqid < this.service.mcqs[i].length ; mcqid++){
+            this.service.attempts[i][mcqid] = 0;
+          }
+        }
         
         this.isAvailable = true;
         this.service.qnNo = 0;
