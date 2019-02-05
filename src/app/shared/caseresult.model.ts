@@ -3,5 +3,5 @@ export class caseresult{
     Case_Id : number;
     start_time : Date;
     end_time : Date;
-    total_marks : number;
+    total_score : number;
 }

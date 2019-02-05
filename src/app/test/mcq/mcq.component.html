@@ -2,9 +2,9 @@
   <form>
   <div>
       
-      <p > {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Question_text}}<p>
-      <p> {{this.service.mcqs[0].Question_text}}<p>
-      <p>Marks : {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks}}</p>
+      <p > {{this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].Question_text}}<p>
+      <p> {{this.service?.mcqs[0].Question_text}}<p>
+      <p>Marks : {{this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].marks}}</p>
       <input type="radio" ng-model name="option" value = "Option_A" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_A}}<br>
       <input type="radio" ng-model name="option" value = "Option_B" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_B}}<br>
       <input type="radio" ng-model name="option" value = "Option_C" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_C}}<br>

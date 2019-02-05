@@ -1,5 +1,6 @@
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { UserService } from '../shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test',
@@ -8,7 +9,7 @@ import { UserService } from '../shared/user.service';
 })
 export class TestComponent implements OnInit {
 
-  constructor(private service : UserService) { }
+  constructor(private service : UserService,private route : Router) { }
 
   ngOnInit() {
     this.service.seconds = 0;
@@ -21,18 +22,18 @@ export class TestComponent implements OnInit {
     }, 1000);
   }
   onSubmitTest(){
-
+    console.log(this.service.totalmark);
     this.service.caseresult = {
-      User_Id :  "uwi",//this.service.userDetail.User_id,
-      Case_Id :  1,//this.service.casestudy.Case_Id,
+      User_Id :  this.service.userDetail.User_id,
+      Case_Id :  this.service.casestudy.Case_Id,
       start_time : new Date() ,
       end_time : new Date(),
-      total_marks : this.service.totalmark
+      total_score : this.service.totalmark
     }
     console.log("ssss");
     this.service.postResult(this.service.caseresult).subscribe(
       (data : any)=>{
-
+        this.route.navigate(['/leaderboard']);
       }
     );
   }

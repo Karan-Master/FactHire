@@ -13,6 +13,7 @@ import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './test/question/question.component';
 import { McqComponent } from './test/mcq/mcq.component';
 import { CasestudyComponent } from './casestudy/casestudy.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CasestudyComponent } from './casestudy/casestudy.component';
     TestComponent,
     QuestionComponent,
     McqComponent,
-    CasestudyComponent
+    CasestudyComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

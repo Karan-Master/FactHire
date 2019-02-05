@@ -23,6 +23,7 @@ export class UserService {
   totalmark : number = 0 ;
   seconds: number;
   timer;
+  leaderboard : caseresult[] = [];
   qnProgress: number;
   correctAnswerCount: number = 0;
   caseresult : caseresult;
@@ -35,6 +36,9 @@ export class UserService {
     return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
   }
 
+  getLeaderBoard(caseid : number){
+    return this.http.post(this.rootURL+'/Leaderboard',caseid);
+  }
   postResult(result : caseresult){
     return this.http.post(this.rootURL+'/CaseResult',result);
   }
@@ -56,7 +60,7 @@ export class UserService {
   }
 
   getMcq(qid : number){
-    console.log(qid);
+    //console.log(qid);
     return this.http.post(this.rootURL+'/Mcq' , qid);
     
   }

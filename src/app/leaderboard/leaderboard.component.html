@@ -1,0 +1,8 @@
+<h1>LeaderBoard</h1>
+  <h2>For casestudy {{this.service.casestudy.Case_Id}}</h2>
+  <ul>
+    <li *ngFor="let entry of this.service.leaderboard">
+      {{ entry.User_Id }}
+      {{ entry.total_score}}
+    </li>
+  </ul>

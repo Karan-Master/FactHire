@@ -23,29 +23,31 @@ export class QuestionComponent implements OnInit {
       (data : any) =>{
         console.log("calling http post for question");
         this.service.questions = data;
+
+        
         this.isAvailable = true;
         this.service.qnNo = 0;
         this.service.mcqNo = 0;
         this.service.currentqid = this.service.questions[this.service.qnNo].Question_Id;
         console.log("question fetch completed");
-        this.dummy();
-        console.log("question fetch completed11");
+        //this.dummy();
+        console.log("mcq fetch completed");
       }
     );
     
   }
   
   dummy(){
-    console.log("dummy");
+    console.log("inside dummy");
     var i:number;
     for( i =0;i<this.service.questions.length;i++){
      // console.log(i);
       this.mcq.loadMcq(i,this.service.questions[i].Question_Id);
       console.log("thread " +i);
-      console.log(this.service.mcqs.length);
+      console.log("mcq length "+this.service.mcqs.length);
       
     }
-      console.log(this.service.mcqs.length);
+      console.log("final length "+ this.service.mcqs.length);
       this.mcq.isA = true;
     
   }
