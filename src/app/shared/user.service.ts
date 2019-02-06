@@ -21,6 +21,7 @@ export class UserService {
   qids : number[] = [];
   qnNo : number = 0;
   totalmark : number = 0 ;
+  casestudyMark : number = 29;
   seconds: number;
   timer;
   leaderboard : caseresult[] = [];
@@ -29,7 +30,11 @@ export class UserService {
   caseresult : caseresult;
   attempts : number[][] = [];
   readonly rootURL ="http://localhost:53737/api"
-  
+  badges : number[] = []//[0,8,8,8,6];
+  levels : string[] = ["newbie" ,"bronze" , "silver","gold","perfect score"];
+  currentLevel : number = 0 ;
+  //nextBadge : number = 0;
+  currentProgress : number = 0;
   constructor(private http : HttpClient) { }
 
   displayTimeElapsed() {
@@ -58,7 +63,7 @@ export class UserService {
     return this.http.post(this.rootURL+'/Question' , caseid);
     
   }
-
+  
   getMcq(qid : number){
     //console.log(qid);
     return this.http.post(this.rootURL+'/Mcq' , qid);

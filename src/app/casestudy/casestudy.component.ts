@@ -15,6 +15,12 @@ export class CasestudyComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
     this.getCaseStudy();
+    var i;
+    this.service.badges[0] = 0;
+    this.service.badges[1] = this.service.casestudyMark/5;
+    this.service.badges[2] = 3*this.service.casestudyMark/10;
+    this.service.badges[3] = 4*this.service.casestudyMark/10;
+    this.service.badges[4] = this.service.casestudyMark/10;
   }
 
   resetForm(form?: NgForm) {

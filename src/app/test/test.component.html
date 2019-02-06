@@ -1,6 +1,9 @@
 <div class="jumbtron">
   <h1 class="display-4 text-center">Test</h1>
   <span>Time Elapsed : {{this.service.displayTimeElapsed()}}</span>
+  <p>{{(this.service.badges[this.service.currentLevel +1 ] - this.service.currentProgress) | number : '1.2-2'}} more points required for {{this.service.levels[this.service.currentLevel+1]}}</p>
+  <mat-progress-bar mode="determinate" value="{{100*(this.service.currentProgress/this.service.badges[this.service.currentLevel + 1])}}">
+  </mat-progress-bar>
   <hr>
   <div class="row">
     <div class="col-md-6">

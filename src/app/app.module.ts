@@ -17,6 +17,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import 'hammerjs';
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import 'hammerjs';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

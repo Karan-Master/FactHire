@@ -21,7 +21,7 @@ export class UserDetailComponent implements OnInit {
       form.resetForm();
       this.service.userDetail = {
         FullName: '',
-        Experience: 0,
+        Experience: null,
         User_id: '',
       }
   }

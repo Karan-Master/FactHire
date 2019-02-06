@@ -2,6 +2,7 @@ import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class TestComponent implements OnInit {
 
   constructor(private service : UserService,private route : Router) { }
-
+  
   ngOnInit() {
     this.service.seconds = 0;
     this.startTimer();
@@ -18,10 +19,13 @@ export class TestComponent implements OnInit {
   startTimer() {
     this.service.timer = setInterval(() => {
       this.service.seconds++;
-      if(this.service.casestudy.Duration == this.service.seconds){
+     /* if(this.service.casestudy.Duration == this.service.seconds){
+        this.onSubmitTest();
+      }*/
+      if(900 == this.service.seconds){
         this.onSubmitTest();
       }
-      localStorage.setItem('seconds', this.service.seconds.toString());
+      
     }, 1000);
   }
   onSubmitTest(){

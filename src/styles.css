@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 form-group>input{
     font-weight: bolder;
 }
 .form-group>label{
-    font-weight: lighter;
+    font-weight:lighter  ;
 }
 
 button[type="submit"]{
@@ -30,3 +31,4 @@ div.validation-error{
     font-size: 80%;
     color: #dc3545;
 }
+

@@ -90,6 +90,17 @@ export class McqComponent implements OnInit {
       if(this.service.mcqs[this.service.qnNo][this.service.mcqNo].Answer == this.selectedOption){
         console.log("inside");
         this.service.totalmark += this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks ;
+        this.service.currentProgress += this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks;
+        if(this.service.currentProgress >= this.service.badges[this.service.currentLevel + 1]){
+          this.service.currentProgress = this.service.currentProgress - this.service.badges[this.service.currentLevel+1];
+          this.service.currentLevel++;
+          
+          
+          console.log(this.service.currentLevel);
+          console.log(this.service.currentProgress);
+          console.log(this.service.badges[this.service.currentLevel + 1]);
+        }
+        
         this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks = 0;
       }
       else{
