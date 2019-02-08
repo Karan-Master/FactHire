@@ -6,5 +6,7 @@ export class question{
     type_id : number;
     Instructions : string;
     Case_id: number;
+    Title : string;
+    ImageUrl : string;
     mcqs : mcq[];
 }

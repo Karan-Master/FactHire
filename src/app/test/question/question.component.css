@@ -1,0 +1,23 @@
+#full{
+    padding : 45px;
+    background-color:rgb(220, 237, 243);
+    }
+     
+    #bottom-nav{
+     
+    background-color:rgb(224, 237, 241);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 48%;
+    height:50px;
+    font-size: 30px;
+    color:rgb(3, 45, 104);
+    
+   
+     
+    }
+    
+
+
+  

@@ -1,21 +1,38 @@
-<div class="jumbtron">
-  <h1 class="display-4 text-center">Test</h1>
-  <span>Time Elapsed : {{this.service.displayTimeElapsed()}}</span>
-  <p>{{(this.service.badges[this.service.currentLevel +1 ] - this.service.currentProgress) | number : '1.2-2'}} more points required for {{this.service.levels[this.service.currentLevel+1]}}</p>
-  <mat-progress-bar mode="determinate" value="{{100*(this.service.currentProgress/this.service.badges[this.service.currentLevel + 1])}}">
-  </mat-progress-bar>
-  <hr>
+<div id="nav-bar" class="container">
   <div class="row">
-    <div class="col-md-6">
-      <app-question></app-question>
+   
+  <div class="col-md-4" style="float:left" >
+  <p id="x">{{this.service?.casestudy.Case_name}}</p>
+  </div>
+   
+  <div class="col-md-4">
+  <p id="y"><strong>{{this.service?.displayTimeElapsed()}}</strong> left</p>
+  </div>
+   
+  <div class="col-md-4" >
+  <button id="z" class="btn-large btn-submit" type="submit" (click) = "onSubmitTest()" style="float:right" >End Test</button>
+  </div>
+   
+   
+  </div>
+  </div>
+   
+ 
+  <div class="row">
+    
+    
+    <div class="col-lg-6">
+      <div id="side-bar">
+          <div *ngFor="let item of this.service.questions ; let i=index">
+          <button type="submit" class="btn-large btn-submit but" (click) = "this.toggleQuestion(i)" >{{i+1}}</button>
+          </div>
+      </div>
+    <app-question></app-question>
+    
     </div>
-    <div class="col-md-6">
-      <app-mcq></app-mcq>
+    
+    <div class="col-lg-6">
+    <app-mcq></app-mcq>
     </div>
   </div>
-  <div class="row" style="float:center">
-    <div class="input-field col s12">
-      <button class="btn-large btn-submit" type="submit" (click) = "onSubmitTest()" >Submit Test</button>
-    </div>
-  </div>
-</div>
+ 

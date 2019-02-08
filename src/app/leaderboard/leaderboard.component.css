@@ -1,3 +1,27 @@
 table {
     width: 100%;
   }
+
+  .mat-header-row {
+    background: rgb(231, 228, 228);
+  }
+  .full {
+    background: rgb(3, 51, 124);
+  }
+  .mat-paginator{
+    background:  rgb(231, 228, 228);
+  }
+  .highlight{
+    background: rgb(155, 197, 157); /* green */
+  }
+  .selected {
+    background-color:rgb(232, 240, 233);
+  }
+  .alternate{
+    background-color: rgb(245, 245, 245);
+  }
+  #h1{
+    color: rgb(255, 255, 255);
+    font-size:40px;
+    font-family:"Helvetica";
+  }

@@ -113,6 +113,7 @@ export class McqComponent implements OnInit {
           this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks = 0;
         }
         else{
+        
           //console.log("else11");
         this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks =this.service.mcqs[this.service.qnNo][this.service.mcqNo].marks / 2;
         this.service.attempts[this.service.qnNo][this.service.mcqNo] +=1;

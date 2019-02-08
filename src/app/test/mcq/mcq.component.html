@@ -1,16 +1,22 @@
-<div *ngIf = "this.service.mcqs.length > 0">
+<mat-card style="margin-top:40px;margin-right:30px">
+<div style="padding-top:40px" *ngIf = "this.service.mcqs.length > 0">
   <form>
   <div>
-      
-      <p > {{this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].Question_text}}<p>
-      <p> {{this.service?.mcqs[0].Question_text}}<p>
+      <mat-card-title>
+      <p > <strong>Question {{this.service.mcqNo + 1}}. {{this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].Question_text}}</strong><p>
+        
+        <div *ngIf = "this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].Image != null">
+          <img mat-card-image class="center" [src]="'http://localhost:53737/Images/'+this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].Image" style="width:350px;height:200px">  
+        </div>
+      </mat-card-title>
       <p>Marks : {{this.service?.mcqs[this.service?.qnNo][this.service?.mcqNo].marks}}</p>
-      <input type="radio" ng-model name="option" value = "Option_A" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_A}}<br>
-      <input type="radio" ng-model name="option" value = "Option_B" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_B}}<br>
-      <input type="radio" ng-model name="option" value = "Option_C" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_C}}<br>
-      <input type="radio" ng-model name="option" value = "Option_D" (change) = "radioChangeHandler($event)">{{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_D}}
+      <input type="radio" ng-model name="option" value = "Option_A" (change) = "radioChangeHandler($event)">  <strong> A.</strong>  {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_A}}<br>
+      <input type="radio" ng-model name="option" value = "Option_B" (change) = "radioChangeHandler($event)">  <strong> B.</strong>  {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_B}}<br>
+      <input type="radio" ng-model name="option" value = "Option_C" (change) = "radioChangeHandler($event)">  <strong> C.</strong>  {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_C}}<br>
+      <input type="radio" ng-model name="option" value = "Option_D" (change) = "radioChangeHandler($event)">  <strong>  D.</strong>  {{this.service.mcqs[this.service.qnNo][this.service.mcqNo].Option_D}}
     
   </div>
+  <mat-card-actions>
   <div>
     <div class="row" style="float:left">
       <div class="input-field col s12">
@@ -29,5 +35,7 @@
         </div>
       </div>
   </div>
+</mat-card-actions>
 </form>
 </div>
+</mat-card>

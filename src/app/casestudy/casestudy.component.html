@@ -1,12 +1,41 @@
-<div class="page-header" >
-  <h1>CaseStudy : {{this.service.casestudy.Case_name}}</h1>
-  <h3>Instruction : {{this.service.casestudy.Instruction}}</h3>
-  <h3>Experience : {{this.service.casestudy.Experience}}</h3>
-  <h3>Role : {{this.service.casestudy.Role}}</h3>
-  <h3>Duration : {{this.service.casestudy.Duration}}</h3>
-  <div class="row">
-    <div class="input-field col s12">
-      <button class="btn-large btn-submit" type="submit" (click) = "OnSubmit()" >Accept</button>
-    </div>
-  </div>
+ 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+ 
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<h2 id="s"> Use this time to read the Instructions.</h2>
 </div>
+</div>
+</div>
+
+
+
+<body id="f">
+<div class="container">
+<div class="row">
+<div id="major" class="col-sm-6">
+<div id="card">
+<ul >
+<li *ngFor="let item of this.arr">
+{{item}}
+</li>
+</ul>
+</div>
+</div>
+<div id="xyz" class="col-sm-6">
+<p *ngIf="this.service.caseseconds>=0">You can start solving problems in {{this.service.displayTimeElapsedCaseStudy()}}</p>
+<p *ngIf="this.service.caseseconds < 0">You can start solving problems now</p>
+<button class="btn-large btn-submit" type="submit" (click) = "OnSubmit()" [disabled]="this.service.caseseconds>0" >Enter Test</button>
+</div>
+</div>
+</div>
+</body>
+</html>

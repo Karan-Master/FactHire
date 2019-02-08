@@ -1,14 +1,53 @@
-    body {
-    background-color: lightblue;
+.row1{
+    max-width:800px;
+    min-width: 320px;
+    width:100%;
+    margin-left :100px;
+    margin-right: 100px;
+    text-align:center;
     }
-    h1 {
-    color: red;
-    text-align: center;
+    .row2{
+    max-width:800px;
+    min-width: 320px;
+    width:100%;
+    margin-left :100px;
+    margin-right: 100px;
+    text-align:center;
     }
-    p {
-    font-family: verdana;
-    font-size: 20px;
+    .row3{
+    max-width:800px;
+    min-width: 320px;
+    width:100%;
+    margin-left :100px;
+    margin-right: 100px;
+    text-align:center;
     }
-    .form-group{
-    
+    #Registercontainer {
+    margin:0 auto;
+    max-width: 600px;
+    min-width: 320px;
+    max-height: 1000px;
+    width: 100%;
+    margin: 200px auto;
+    border: 1px solid;
+    background-color:white;
+    border-color:white;
+    top: 0;
+    padding: 15px;
+    }
+    .jumbtron {
+    background-color:rgb(9, 16, 110);
+    }
+    #x{
+    font-size: 50px;
+    text-align:center;
+    margin-top:0px;
+    color:white;
+    vertical-align: text-bottom;
+    position:relative;
+    top:100px;
+    }
+    button[type="submit"]{
+    background-color:rgb(78, 141, 235);
+    color: #fff;
     }

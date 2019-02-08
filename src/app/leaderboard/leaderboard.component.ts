@@ -16,11 +16,12 @@ export class LeaderboardComponent implements OnInit {
   //ELEMENT_DATA: caseresult[];
   dataSource : MatTableDataSource<any>; 
   pageEvent: PageEvent;
+  selectedRowIndex: number = -1;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
   ngOnInit() {
     
-    this.service.getLeaderBoard(1).subscribe(
+    this.service.getLeaderBoard(this.service.casestudy.Case_Id).subscribe(
       (data : any) =>{
         this.service.leaderboard = data;
         //this.ELEMENT_DATA = data;
@@ -31,8 +32,21 @@ export class LeaderboardComponent implements OnInit {
       }
     );
     
+  }/*
+  highlight(row){
+    console.log(row.id);
+    this.selectedRowIndex = row.id;
+    }*/
+    highlight(row, index, oddFlag, evenFlag, lastFlag){
+      console.log("index:" + index + " odd: " + oddFlag + " even: " + evenFlag + " last: " + lastFlag);
+      this.selectedRowIndex = row.id;
   }
-  
+  selectRow(row) {
+    console.log(row);
+    console.log("hiw")
+    //this.selectedRow = row;
+      //this.Id = row.User_Id;
+  }
 }
 
-
+//this.service.userDetail.User_id
